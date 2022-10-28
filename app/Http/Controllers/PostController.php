@@ -27,40 +27,22 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => ['required','min:4'],
             'body'  => ['required']
-        ]);
-        #dd($validated);
-        #return 'Datos Enviados';
-        //$post= new  Post;
-        //$post->title=$request->input('title');
-        //$post->body=$request->input('body');
-        //$post->save();esto es igual lo de abajo
+        ]);       
         Post::create($validated);
-        #return $request->input('title');
-        #return redirect()->route('posts.index');#redirecciona al index
         session()->flash('status','Elemento Creado!'); 
-        return to_route('posts.index');#mas simple se usa to_route
+        return to_route('posts.index');
     }
     public function edit(Post $post){
-       # return $post;
         return view('posts.edit',['post'=>$post]);
     }
     public function update(Request $request,Post $post){
-        # return $post;
-       #validacion de datos
+        #validacion de datos
        $validated=$request->validate([
         'title' => ['required','min:4'],
         'body'  => ['required']
-        ]);
-        #return 'Datos Enviados';
-        #$post= Post::find($post); # esta linea se deja inutilizable al añadir Post como variables  
-        //$post->title=$request->input('title');
-        //$post->body=$request->input('body');
-        //$post->save();
-        $post->update($validated);
-        #return $request->input('title');
-        #return redirect()->route('posts.index');#redirecciona al index
+        ]);        
+        $post->update($validated);        
         session()->flash('status','Elemento Editado!'); 
-        return to_route('posts.show',$post);#mas simple se usa to_route
-        #2:06:14
+        return to_route('posts.show',$post);
     }
 }
