@@ -9,5 +9,5 @@ class Post extends Model
 {
     use HasFactory;
     protected $table ='usuarios';
-    protected $fillable=['title','body'];
+    #protected $guarded=[];
 }

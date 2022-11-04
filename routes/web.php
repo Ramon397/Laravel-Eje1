@@ -13,6 +13,7 @@ Route::view('/contacto','contacto')->name('contacto');
 Route::get('/blog',[PostController::class,'index'])->name('posts.index');
 Route::get('/blog/create',[PostController::class,'create'])->name('posts.create');#usado para mandar info
 Route::post('/blog',[PostController::class,'store'])->name('posts.store');#usado para almacenar
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('posts.destroy');
 
 Route::get('/blog/{post}',[PostController::class,'show'])->name('posts.show');#usado para ver datos
 Route::get('/blog{post}/edit',[PostController::class,'edit'])->name('posts.edit');#usado para ver l opcion de editar

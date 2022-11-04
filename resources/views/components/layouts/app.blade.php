@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ejemplo-{{ $title?? ''}}</title>
         <meta name="description" content="{{ $metaDescription ?? 'Default meta description'}}"><!-- definir propiedades en camel case --->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"></script>
+            @vite(['resources/css/app.scss','resources/js/app.js'])
+        <!--<link rel="stylesheet" href="/css/app.css">-->
+        <!--<script src="/js/app.js"></script>-->
     </head>
     <body>
         <x-layouts.navigation/>       
